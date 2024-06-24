@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip calculator</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+  <div class="container">
+    <div class="col-1">
+
+      <div class="bill-section">
+        <p>Bill Amount</p>
+        <input type="text" placeholder="Enter bill amount">
+      </div>
+
+      <div class="tip-section">
+        <p>Tip %</p>
+        <div class="input-box">
+          <input type="button" value="+" class="plus-btn">
+          <input type="text" class="input" readonly value="15">
+          <input type="button" value="-" class="neg-btn">
+        </div>
+      </div>
+
+      <div class="people-section">
+        <p>Number of people</p>
+        <div class="input-box">
+          <input type="button" value="+" class="plus-btn">
+          <input type="text" class="input" readonly value="9">
+          <input type="button" value="-" class="neg-btn">
+        </div>
+      </div>
+      <button id="calculate-btn">Calculate</button>
+    </div>
+
+      <!-- column 2 -->
+    <div class="col-2">
+      <div class="total-section">
+        <div class="text-heading">
+          <p>Tip</p>
+          <span>per person</span>
+        </div>
+        <p id="tip-per-person">2.50</p>
+      </div>
+
+      <div class="total-section">
+        <div class="text-heading">
+          <p>Tip</p>
+          <span>per person</span>
+        </div>
+        <p id="total-tip-amount">2.50</p>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
