@@ -5,61 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tip calculator</title>
     <link rel="stylesheet" href="style.css">
-
-
 </head>
 <body>
   <div class="container">
+    <!-- col-1 -->
     <div class="col-1">
-
       <div class="bill-section">
         <p>Bill Amount</p>
-        <input type="text" placeholder="Enter bill amount">
+        <input type="number" placeholder="Enter bill amount" id="bill-input-box" oninput="validateMaxLength(this)">
       </div>
 
       <div class="tip-section">
         <p>Tip %</p>
         <div class="input-box">
-          <input type="button" value="+" class="plus-btn">
-          <input type="text" class="input" readonly value="15">
-          <input type="button" value="-" class="neg-btn">
+          <input type="button" value="-" class="neg-btn" id="tip-neg-btn" disabled>
+          <input type="text" class="input" id="tip-percent-box" value="0" disabled> 
+          <input type="button" value="+" class="plus-btn" id="tip-plus-btn">
         </div>
       </div>
 
       <div class="people-section">
         <p>Number of people</p>
         <div class="input-box">
-          <input type="button" value="+" class="plus-btn">
-          <input type="text" class="input" readonly value="9">
-          <input type="button" value="-" class="neg-btn">
+          <input type="button" value="-" class="neg-btn" id="people-neg-btn" disabled>
+          <input type="text" class="input" readonly value="1" id="total-people-box">
+          <input type="button" value="+" class="plus-btn" id="people-plus-btn">
         </div>
       </div>
-      <button id="calculate-btn">Calculate</button>
+      <div class="buttons">
+        <button id="calculate-btn" class="btn">Calculate</button>
+        <button id="clear-btn" class="btn">Clear</button>
+      </div>
     </div>
 
       <!-- column 2 -->
     <div class="col-2">
+
       <div class="total-section">
         <div class="text-heading">
-          <p>Tip</p>
-          <span>per person</span>
+          <p>Total</p>
+          <span>amount</span>
         </div>
-        <p id="tip-per-person">2.50</p>
+        <p id="total-amount-box" class="amount">0</p>
       </div>
+
+      <div class="hr-line"></div>
+
 
       <div class="total-section">
         <div class="text-heading">
           <p>Tip</p>
           <span>per person</span>
         </div>
-        <p id="total-tip-amount">2.50</p>
+        <p id="tip-per-person" class="amount">0</p>
       </div>
+
+      <div class="hr-line"></div>
+
+      <div class="total-section">
+        <div class="text-heading">
+          <p>Total</p>
+          <span>per person</span>
+        </div>
+        <p id="total-per-person" class="amount">0</p>
+      </div>
+
+      
+
     </div>
-
 
   </div>
 
   <script src="script.js"></script>
-
 </body>
 </html>
