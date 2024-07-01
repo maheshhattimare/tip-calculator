@@ -1,8 +1,21 @@
 const calculateBtn=document.getElementById('calculate-btn');
+const clearBtn=document.getElementById('clear-btn');
+
 const billInputBox=document.getElementById('bill-input-box');
+
 const tipPercentBox=document.getElementById('tip-percent-box');
-const tipPlusBtn=document.getElementById('tip-plus-btn');
-const tipNegBtn=document.getElementById('tip-neg-btn');
+const tipSlider=document.getElementById('tip-slider');
+
+const peopleSlider=document.getElementById('people-slider');
+const totalPeopleBox=document.getElementById('total-people-box');
+
+tipSlider.addEventListener('input',function(){
+    tipPercentBox.innerHTML=tipSlider.value;
+});
+
+peopleSlider.addEventListener('input',function(){
+    totalPeopleBox.innerHTML=peopleSlider.value;
+});
 
 function validateMaxLength(element) {
     if (element.value.length > 5) {
@@ -11,111 +24,54 @@ function validateMaxLength(element) {
 }
 window.addEventListener('DOMContentLoaded',function(){
     billInputBox.focus();
-})
-
-//**********tip logic*********** *********** */
-let tipPercentAmount=0;
-tipPlusBtn.addEventListener('click',()=>{
-    // tipPercentAmount=tipPercentBox.value;
-    tipPercentAmount++;
-    tipPercentBox.value=tipPercentAmount
-
-    if(tipPercentAmount >= 0){
-        tipNegBtn.removeAttribute('disabled')
-    }
-    if(tipPercentAmount >= 50){
-        tipPlusBtn.setAttribute('disabled',true);
-    }
 });
-tipNegBtn.addEventListener('click',()=>{
-    // tipPercentAmount=tipPercentBox.value;
-    tipPercentAmount--;
-    tipPercentBox.value=tipPercentAmount
-    if(tipPercentAmount == 0){
-        tipNegBtn.setAttribute('disabled', true);
-    }
-    if(tipPercentAmount <= 50){
-        tipPlusBtn.removeAttribute('disabled');
-    }
-});
-//*********************End of tip percent logic********************* */
 
-//**************Total people logic********************** */
-const totalPeopleBox=document.getElementById('total-people-box');
-const peoplePlusBtn=document.getElementById('people-plus-btn');
-const peopleNegBtn=document.getElementById('people-neg-btn');
+//variables 
+const tipAmountBox=document.getElementById('tip-amount-box');
+const totalToPayBox=document.getElementById('total-to-pay-box');
+const totalPerPersonBox=document.getElementById('total-per-person-box');
 
-let numberOfPeople=1;
-peoplePlusBtn.addEventListener('click',()=>{
-    // tipPercentAmount=tipPercentBox.value;
-    numberOfPeople++;
-    totalPeopleBox.value=numberOfPeople
-
-    if(numberOfPeople > 1){
-        peopleNegBtn.removeAttribute('disabled')
-    }
-    if(numberOfPeople >= 50){
-        peoplePlusBtn.setAttribute('disabled',true);
-    }
-});
-peopleNegBtn.addEventListener('click',()=>{
-    // tipPercentAmount=tipPercentBox.value;
-    numberOfPeople--;
-    totalPeopleBox.value=numberOfPeople
-    if(numberOfPeople == 1){
-        peopleNegBtn.setAttribute('disabled', true);
-    }
-    if(numberOfPeople <= 50){
-        peoplePlusBtn.removeAttribute('disabled');
-    }
-});
-//*********End of people section logic *********** */
-
-const totalAmountBox=document.getElementById('total-amount-box');
-const tipPerPersonBox=document.getElementById('tip-per-person');
-const totalPerPersonBox=document.getElementById('total-per-person');
-
+// calculate button logic
 calculateBtn.addEventListener('click',()=>{
     if(!billInputBox.value){
         billInputBox.classList.add('error');
         setTimeout(()=>{
-            billInputBox.classList.remove('error')
+            billInputBox.classList.remove('error');
         },3000);
-    }else{
+    }
+    else{
         calculateTip();
     }
 });
 
 function calculateTip(){
-    
     const billAmount=parseFloat(billInputBox.value);
-    const tipPercent=parseFloat(tipPercentBox.value);
-    const totalPerson=parseFloat(totalPeopleBox.value);
+    const tipPercent=parseFloat(tipPercentBox.innerHTML);
+    const totalPeople=parseFloat(totalPeopleBox.innerHTML);
 
     const tipAmount=billAmount * (tipPercent/100);
+    tipAmountBox.value=(tipAmount).toFixed(2);
 
-    const tipPerPerson=(tipAmount /totalPerson).toFixed(1);
-    const totalAmount=(billAmount+tipAmount).toFixed(1);
-    const totalPerPerson=(totalAmount/totalPerson).toFixed(1);
+    const totalToPay=((billAmount+tipPercent) * totalPeople);
+    totalToPayBox.value=(totalToPay).toFixed(2);
+
+    const totalPerPerson=(totalToPay/totalPeople).toFixed(2);
+    totalPerPersonBox.value=totalPerPerson;
     
-    totalAmountBox.innerHTML=totalAmount;
-    tipPerPersonBox.innerHTML=tipPerPerson;
-    totalPerPersonBox.innerHTML=totalPerPerson;
 }
 
-//************clear button logic *************** */
-const clearBtn=document.getElementById('clear-btn');
-clearBtn.addEventListener('click', ()=>{
-    billInputBox.value="";
-    tipPercentAmount=0;
-    tipPercentBox.value=0;
-    tipNegBtn.setAttribute('disabled', true);
+// clear button logic
+clearBtn.addEventListener('click',function(){
+    billInputBox.value=" ";
+    billInputBox.focus();
 
-    numberOfPeople=1;
-    totalPeopleBox.value=1;
-    peopleNegBtn.setAttribute('disabled', true);
+    tipSlider.value=10;
+    tipPercentBox.innerHTML=10;
 
-    totalAmountBox.innerHTML=0;
-    tipPerPersonBox.innerHTML=0;
-    totalPerPersonBox.innerHTML=0
-})
+    peopleSlider.value=1;
+    totalPeopleBox.innerHTML=1;
+
+    tipAmountBox.value=0;
+    totalToPayBox.value=0;
+    totalPerPersonBox.value=0;
+});
