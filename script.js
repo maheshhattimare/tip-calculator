@@ -52,7 +52,7 @@ function calculateTip(){
     const tipAmount=billAmount * (tipPercent/100);
     tipAmountBox.value=(tipAmount).toFixed(2);
 
-    const totalToPay=((billAmount+tipPercent) * totalPeople);
+    const totalToPay=(billAmount+tipAmount);
     totalToPayBox.value=(totalToPay).toFixed(2);
 
     const totalPerPerson=(totalToPay/totalPeople).toFixed(2);

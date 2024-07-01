@@ -10,7 +10,7 @@
     --grey-light-color: #eceff4;
     --color-white: #fff;
     --primary-color: rgb(37, 150, 190);
-    --secondary-color: rgb(37, 150, 190);
+    --secondary-color: rgb(41, 127, 158);
     --border-color: #bdbcbc;
 }
 body{
@@ -25,7 +25,7 @@ body{
     background-color: var(--primary-color) !important;
 }
 #bill-input-box{
-    border: 1px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
 }
 .hr-line {
     width: 100%;
@@ -39,16 +39,34 @@ body{
 }
 
 #bill-input-box:focus {
-    border: 2px solid var(--background-color) ;
+    border: 1px solid var(--background-color) ;
 }
 
 #bill-input-box::-webkit-outer-spin-button,
 #bill-input-box::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
-.btn-primary{
+#calculate-btn{
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+#calculate-btn:hover{
+    background-color: var(--secondary-color);
+}
+#clear-btn{
+    border: 2px solid var(--primary-color);
+    transition: border 0.3s ease;
+}
+#clear-btn:hover{
+    border: 2px solid var(--secondary-color);
+}
+#tip-slider::-webkit-slider-thumb , #people-slider::-webkit-slider-thumb{
     background-color: var(--primary-color);
 }
+
 
 /* media queries  */
 @media screen and (max-width:576px) {
