@@ -1,46 +1,59 @@
-# Tip Calculator
+# TipCraft - Advanced Tip Calculator
 
-A simple and interactive tip calculator application built with HTML, CSS, and JavaScript. This app allows users to calculate the tip amount, tip per person, total amount per person, and more.
+A smart and interactive Tip Calculator built with **React** and **Tailwind CSS**. TipCraft offers a modern UI, theme switching, currency selection, and real-time calculations.
 
-## Visit the Website
+## 🚀 Live Demo
 
-[Tip Calculator](https://maheshhattimare.github.io/tip-calculator/)
+[TipCraft - Advanced Tip Calculator](https://tip-craft.vercel.app/)
 
-## Features
+## ✨ Features
 
-- User-friendly interface
-- Clear data feature
-- Responsive design
+- Responsive and clean UI
+- Auto calculation on input
+- Theme switch (light/dark)
+- Multi-currency selection
+- Clear/reset functionality
 
-## Technologies Used
+## 🛠 Tech Stack
 
-- HTML
-- CSS
+- React
+- Tailwind CSS
 - JavaScript
 
-## Screenshots
+## 📸 Screenshots
 
 ### Interface
-![Interface](./images/screenshot1.png)
+
+![Interface](./public/screenshots/interface.png)
 
 ### Result
-![Result](./images/screenshot2.png)
 
-## Installation
+![Result](./public/screenshots/result.png)
+
+## 📦 Installation
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/maheshhattimare/tip-calculator.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd tip-calculator
-    ```
-3. Open `index.html` in your web browser to start the application.
 
-## Usage
+   ```bash
+   git clone https://github.com/maheshhattimare/TipCraft.git
+   ```
 
-1. Open the `index.html` file in your preferred web browser.
-2. Enter the bill amount, tip percentage, and number of people.
-3. Click on the "Calculate" button to get the result.
-4. Click on the "Clear" button to reset the input fields.
+2. Navigate to the project folder:
+
+   ```bash
+   cd TipCraft
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Run the app:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Visit: [http://localhost:5173](http://localhost:5173)
